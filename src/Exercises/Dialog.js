@@ -32,7 +32,12 @@ export default class extends Component {
 
     return (
       <Fragment>
-        <Button variant="fab" color="primary" mini onClick={this.handleToggle}>
+        <Button
+          variant="fab"
+          color="secondary"
+          mini
+          onClick={this.handleToggle}
+        >
           <Add />
         </Button>
         <Dialog open={open} onClose={this.handleToggle} fullWidth maxWidth="xs">
