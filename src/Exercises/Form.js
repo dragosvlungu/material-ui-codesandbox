@@ -31,8 +31,8 @@ export default withStyles(styles)(
           };
     }
 
-    componentWillReceiveProps(nextProps) {
-      this.setState({ ...nextProps.exercise });
+    static getDerivedStateFromProps(nextProps) {
+      return nextProps.exercise || null;
     }
 
     handleChange = name => event => {
