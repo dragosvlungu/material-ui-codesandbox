@@ -1,13 +1,17 @@
 import React, { Component } from "react";
-import { FormControl } from "material-ui/Form";
-import { InputLabel } from "material-ui/Input";
-import { MenuItem } from "material-ui/Menu";
-import { TextField, Select, Button } from "material-ui";
-import { withStyles } from "material-ui/styles";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  TextField,
+  Select,
+  Button
+} from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
   FormControl: {
-    width: 300
+    width: 250
   }
 });
 
