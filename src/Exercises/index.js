@@ -48,6 +48,7 @@ export default withStyles(styles)(
             !category || category === group ? (
               <Fragment key={group}>
                 <Typography
+                  color="secondary"
                   variant="headline"
                   style={{ textTransform: "capitalize" }}
                 >
@@ -58,10 +59,16 @@ export default withStyles(styles)(
                     <ListItem key={id} onClick={() => onSelect(id)} button>
                       <ListItemText primary={title} />
                       <ListItemSecondaryAction>
-                        <IconButton onClick={() => onSelectEdit(id)}>
+                        <IconButton
+                          color="primary"
+                          onClick={() => onSelectEdit(id)}
+                        >
                           <Edit />
                         </IconButton>
-                        <IconButton onClick={() => onDelete(id)}>
+                        <IconButton
+                          color="primary"
+                          onClick={() => onDelete(id)}
+                        >
                           <Delete />
                         </IconButton>
                       </ListItemSecondaryAction>
@@ -75,7 +82,7 @@ export default withStyles(styles)(
       </Grid>
       <Grid item xs={12} sm={6}>
         <Paper className={classes.Paper}>
-          <Typography variant="display1" gutterBottom>
+          <Typography variant="display1" color="secondary" gutterBottom>
             {title}
           </Typography>
           {editMode ? (
