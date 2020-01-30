@@ -7,91 +7,79 @@ import {
   Select,
   Button
 } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
 
-const styles = theme => ({
-  FormControl: {
-    width: 250
+export default class extends Component {
+  state = this.getInitialState();
+
+  getInitialState() {
+    const { exercise } = this.props;
+
+    return exercise
+      ? exercise
+      : {
+          title: "",
+          description: "",
+          muscles: ""
+        };
   }
-});
 
-export default withStyles(styles)(
-  class extends Component {
-    state = this.getInitialState();
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value
+    });
+  };
 
-    getInitialState() {
-      const { exercise } = this.props;
+  handleSubmit = () => {
+    this.props.onSubmit({
+      id: this.state.title.toLocaleLowerCase().replace(/ /g, "-"),
+      ...this.state
+    });
+  };
 
-      return exercise
-        ? exercise
-        : {
-            title: "",
-            description: "",
-            muscles: ""
-          };
-    }
+  render() {
+    const { title, description, muscles } = this.state,
+      { exercise, muscles: categories } = this.props;
 
-    componentWillReceiveProps(nextProps) {
-      this.setState({ ...nextProps.exercise });
-    }
-
-    handleChange = name => event => {
-      this.setState({
-        [name]: event.target.value
-      });
-    };
-
-    handleSubmit = () => {
-      // TODO: validate
-
-      this.props.onSubmit({
-        id: this.state.title.toLocaleLowerCase().replace(/ /g, "-"),
-        ...this.state
-      });
-
-      this.setState(this.getInitialState());
-    };
-
-    render() {
-      const { title, description, muscles } = this.state,
-        { classes, exercise, muscles: categories } = this.props;
-
-      return (
-        <form>
-          <TextField
-            label="Title"
-            value={title}
-            onChange={this.handleChange("title")}
-            margin="normal"
-            className={classes.FormControl}
-          />
-          <br />
-          <FormControl className={classes.FormControl}>
-            <InputLabel htmlFor="muscles">Muscles</InputLabel>
-            <Select value={muscles} onChange={this.handleChange("muscles")}>
-              {categories.map(category => (
-                <MenuItem key={category} value={category}>
-                  {category}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <br />
-          <TextField
-            label="Description"
-            value={description}
-            onChange={this.handleChange("description")}
-            margin="normal"
-            multiline
-            rowsMax="4"
-            className={classes.FormControl}
-          />
-          <br />
-          <Button color="primary" variant="raised" onClick={this.handleSubmit}>
-            {exercise ? "Edit" : "Create"}
-          </Button>
-        </form>
-      );
-    }
+    return (
+      <form>
+        <TextField
+          label="Title"
+          value={title}
+          onChange={this.handleChange("title")}
+          margin="normal"
+          fullWidth
+        />
+        <br />
+        <FormControl fullWidth>
+          <InputLabel htmlFor="muscles">Muscles</InputLabel>
+          <Select value={muscles} onChange={this.handleChange("muscles")}>
+            {categories.map(category => (
+              <MenuItem key={category} value={category}>
+                {category}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <br />
+        <TextField
+          label="Description"
+          value={description}
+          onChange={this.handleChange("description")}
+          margin="normal"
+          multiline
+          rowsMax="4"
+          fullWidth
+        />
+        <br />
+        <Button
+          color="primary"
+          variant="raised"
+          onClick={this.handleSubmit}
+          disabled={!title || !muscles}
+        >
+          {exercise ? "Edit" : "Create"}
+        </Button>
+      </form>
+    );
   }
-);
+}

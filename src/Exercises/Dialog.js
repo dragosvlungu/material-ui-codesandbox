@@ -35,7 +35,7 @@ export default class extends Component {
         <Button variant="fab" color="primary" mini onClick={this.handleToggle}>
           <Add />
         </Button>
-        <Dialog open={open} onClose={this.handleToggle}>
+        <Dialog open={open} onClose={this.handleToggle} fullWidth maxWidth="xs">
           <DialogTitle>Create a new exercise</DialogTitle>
           <DialogContent>
             <DialogContentText>
