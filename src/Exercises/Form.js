@@ -7,7 +7,6 @@ import {
   Select,
   Button
 } from "@material-ui/core";
-
 export default class extends Component {
   state = this.getInitialState();
 
@@ -21,8 +20,6 @@ export default class extends Component {
           description: "",
           muscles: ""
         };
-  }
-
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value
