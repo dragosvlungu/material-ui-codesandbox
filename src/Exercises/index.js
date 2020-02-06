@@ -111,6 +111,7 @@ class Exercises extends Component {
         <Grid item xs={12} sm={6} className={classes.item}>
           <Paper className={classes.paper}>
             <Typography variant="h4" color="secondary" gutterBottom>
+
               {title}
             </Typography>
             {editMode ? (
@@ -121,7 +122,8 @@ class Exercises extends Component {
                 exercise={exercise}
               />
             ) : (
-              <Typography variant="subtitle1">{description}</Typography>
+             <Typography variant="subtitle1">{description}</Typography>
+
             )}
           </Paper>
         </Grid>

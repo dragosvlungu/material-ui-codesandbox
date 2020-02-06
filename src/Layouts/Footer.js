@@ -25,7 +25,8 @@ class Footer extends Component {
           indicatorColor="secondary"
           textColor="secondary"
           centered={width !== "xs"}
-          variant={width === "xs" ? "scrollable" : "standard"}
+         variant={width === "xs" ? "scrollable" : "standard"}
+
         >
           <Tab /*style={{ color: "red" }}*/ label="All" />
           {muscles.map(group => (
