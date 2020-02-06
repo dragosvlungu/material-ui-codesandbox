@@ -33,7 +33,7 @@ class CreateDialog extends Component {
 
     return (
       <Fragment>
-        <Fab color="secondary" onClick={this.handleToggle}>
+        <Fab color="secondary" size="small" onClick={this.handleToggle}>
           <Add />
         </Fab>
         <Dialog open={open} onClose={this.handleToggle} fullWidth maxWidth="xs">
