@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from "react";
-import { Dialog, Button } from "@material-ui/core";
+import { Dialog, Fab } from "@material-ui/core";
 import {
   DialogTitle,
   DialogContent,
@@ -33,14 +33,9 @@ class CreateDialog extends Component {
 
     return (
       <Fragment>
-        <Button
-          variant="fab"
-          color="secondary"
-          mini
-          onClick={this.handleToggle}
-        >
+        <Fab color="secondary" size="small" onClick={this.handleToggle}>
           <Add />
-        </Button>
+        </Fab>
         <Dialog open={open} onClose={this.handleToggle} fullWidth maxWidth="xs">
           <DialogTitle>Create a new exercise</DialogTitle>
           <DialogContent>
