@@ -12,7 +12,8 @@ const styles = {
 export default withStyles(styles)(({ classes, onExerciseCreate }) => (
   <AppBar position="static">
     <Toolbar>
-      <Typography variant="headline" color="inherit" className={classes.flex}>
+      <Typography variant="h5" color="inherit" className={classes.flex}>
+
         Exercise database
       </Typography>
 

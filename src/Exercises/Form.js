@@ -70,7 +70,7 @@ export default class extends Component {
         <br />
         <Button
           color="primary"
-          variant="raised"
+          variant="contained"
           onClick={this.handleSubmit}
           disabled={!title || !muscles}
         >

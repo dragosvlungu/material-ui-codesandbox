@@ -18,7 +18,7 @@ import { withContext } from "../context";
 
 const styles = theme => ({
   paper: {
-    padding: theme.spacing.unit * 2,
+    padding: theme.spacing(2),
     overflowY: "auto",
     [theme.breakpoints.up("sm")]: {
       marginTop: 5,
@@ -77,7 +77,7 @@ class Exercises extends Component {
                 <Fragment key={group}>
                   <Typography
                     color="secondary"
-                    variant="headline"
+                    variant="h5"
                     style={{ textTransform: "capitalize" }}
                   >
                     {group}
@@ -110,7 +110,8 @@ class Exercises extends Component {
         </Grid>
         <Grid item xs={12} sm={6} className={classes.item}>
           <Paper className={classes.paper}>
-            <Typography variant="display1" color="secondary" gutterBottom>
+            <Typography variant="h4" color="secondary" gutterBottom>
+
               {title}
             </Typography>
             {editMode ? (
@@ -121,7 +122,8 @@ class Exercises extends Component {
                 exercise={exercise}
               />
             ) : (
-              <Typography variant="subheading">{description}</Typography>
+             <Typography variant="subtitle1">{description}</Typography>
+
             )}
           </Paper>
         </Grid>
